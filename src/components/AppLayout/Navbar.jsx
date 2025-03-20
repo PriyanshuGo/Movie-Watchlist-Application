@@ -59,7 +59,7 @@ const Navbar = () => {
                   isActive ? "text-teal-400 font-bold" : "text-white"
                 }
                 to={link.href}
-                // onClick={handleMenu}
+                onClick={handleMenu}
               >
                 {link.label}
               </NavLink>

@@ -2,7 +2,7 @@ function CoverPage({ results }) {
   const [{ title, overview, poster_path } = {}] = results || []; // Destructuring the first object from the results array
 
   return (
-    <div className="relative mx-20 my-8 rounded-2xl overflow-hidden shadow-xl">
+    <div className="relative mx-5 sm:mx-20 my-8 rounded-2xl overflow-hidden shadow-xl">
     {/* Background Image with Blur Effect */}
     <div
       className="absolute inset-0 bg-black/70 z-10 rounded-2xl"
@@ -15,12 +15,12 @@ function CoverPage({ results }) {
     />
 
     {/* Main Content */}
-    <div className="relative z-20 flex flex-col md:flex-row items-center gap-6 p-6 w-full">
+    <div className="relative z-20 flex md:flex-row items-center gap-6 p-6 w-full ">
       {/* Movie Poster */}
       <img
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
         alt={title}
-        className="w-full md:w-72 rounded-xl shadow-lg"
+        className="w-40 md:w-72 rounded-xl shadow-lg"
       />
 
       {/* Movie Details */}

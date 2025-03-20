@@ -19,9 +19,9 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<AppLayout />}>
         <Route path="/" element={<Home />} loader={JokeLoader}/>
-        <Route path="movies" element={<Movies />} loader={movieLoader} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="/movies" element={<Movies />} loader={movieLoader} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Route>
     )
   );

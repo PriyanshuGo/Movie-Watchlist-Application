@@ -59,10 +59,7 @@ const Navbar = () => {
                   isActive ? "text-teal-400 font-bold" : "text-white"
                 }
                 to={link.href}
-                onClick={() => {
-                  setTimeout(() => setIsOpen(false), 100);  // This directly sets isOpen to false
-                }}
-                
+                // onClick={handleMenu}
               >
                 {link.label}
               </NavLink>

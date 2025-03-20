@@ -1,5 +1,5 @@
-function CoverPage({ results }) {
-  const [{ title, overview, poster_path } = {}] = results || []; // Destructuring the first object from the results array
+function CoverPage({ allMovie }) {
+  const [{ title, overview, poster_path } = {}] = allMovie || []; // Destructuring the first object from the results array
 
   return (
     <div className="relative mx-5 sm:mx-20 my-8 rounded-2xl overflow-hidden shadow-xl">

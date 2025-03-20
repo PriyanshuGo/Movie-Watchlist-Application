@@ -1,26 +1,11 @@
-import axios from "axios";
-import Loader from "../Loader";
-import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
-function Quote() {
-  const [quote, setQuote] = useState(null);
-  const API = "https://official-joke-api.appspot.com/jokes/random";
-  const QuoteOfTheDay = async () => {
-    try {
-      const res = await axios.get(API);
-      setQuote(res);
-    } catch (error) {
-      console.error("Error fetching the quote:", error);
-    }
-  };
-  useEffect(() => {
-    QuoteOfTheDay();
-  }, []);
-
-  if (quote) {
+function Joke() {
+  const joke = useLoaderData();
+  if (joke) {
     const {
       data: { setup, punchline },
-    } = quote;
+    } = joke;
     return (
       <div className="text-white text-center bg-gray-800/70 backdrop-blur-md rounded-xl p-6 shadow-lg border border-gray-700 mb-4 mx-2 transition-all duration-500 hover:scale-105">
         <h2 className="text-xl font-semibold mb-2 text-teal-400">{setup}</h2>
@@ -36,4 +21,4 @@ function Quote() {
   );
 }
 
-export default Quote;
+export default Joke;

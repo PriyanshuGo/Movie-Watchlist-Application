@@ -1,9 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import CoverPage from "../components/Movies/CoverPage";
+import { useState,useEffect } from "react";
 
 function Movies() {
   const movies = useLoaderData();
-  const { results } = movies;
+  const { results } = movies || {};
+  const [loading, setLoading] = useState(true);
+
   // console.log(results);
   // const [category, setcategory] = "";
 
@@ -12,6 +15,20 @@ function Movies() {
       0: { poster_path, title, overview },
     },
   } = movies;
+  useEffect(() => {
+    if (results) {
+      setLoading(false);
+    }
+  }, [results]);
+
+  if(loading){
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+      
+      <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500"></div>
+    </div>
+    )
+  }
 
   return (
     <div className="text-white">

@@ -1,8 +1,8 @@
 import CoverPage from "../components/Movies/CoverPage";
 import axios from "axios";
 import { useEffect, useContext } from "react";
-import SearchBar from "../components/Movies/searchbar";
 import { MovieContext } from "../contextCreate/Movie";
+import SearchBar from "../components/Movies/SearchBar";
 import Category from "../components/Movies/Category";
 import DisplayMovie from "../components/Movies/DisplayMovie";
 import Paging from "../components/Movies/Paging";

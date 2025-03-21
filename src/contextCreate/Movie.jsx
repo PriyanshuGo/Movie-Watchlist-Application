@@ -7,7 +7,8 @@ export const MovieProvider = ({ children }) => {
       allMovie:[],
       searchResult:[],
       page:1,
-      category:"now_playing"
+      category:"now_playing",
+      loading:false,
     });
   
   return <MovieContext.Provider value={{movie,setMovie}}>{children}</MovieContext.Provider>;

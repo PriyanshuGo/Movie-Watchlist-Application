@@ -1,4 +1,4 @@
-function DisplayMovie({ allMovie, searchResult, page, setMovie, loading }) {
+function DisplayMovie({ allMovie, searchResult, loading }) {
   const renderMovie = searchResult?.length > 0 ? searchResult : allMovie;
 
   if (loading) {

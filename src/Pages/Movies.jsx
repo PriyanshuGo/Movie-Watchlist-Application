@@ -8,8 +8,9 @@ import DisplayMovie from "../components/Movies/DisplayMovie";
 import Paging from "../components/Movies/Paging";
 
 function Movies() {
-  const { movie, setMovie } = useContext(MovieContext);
-  const { allMovie, searchResult, page, category, loading } = movie;
+  const { movie, setMovie, search, setSearch } = useContext(MovieContext);
+  const { allMovie, page, category, loading } = movie;
+  const { searchResult } = search;
 
   const movieLoader = async () => {
     try {
@@ -32,7 +33,7 @@ function Movies() {
   };
 
   const handleCategory = (e) => {
-    setMovie((prev) => ({ ...prev, searchResult: [] }));
+    setSearch((prev) => ({ ...prev, searchResult: [] }));
     const newCategory = e.target.name;
     setMovie((prev) => ({ ...prev, category: newCategory, page: 1 }));
   };
@@ -45,7 +46,7 @@ function Movies() {
     <div className="text-white">
       <div className="flex flex-col items-center gap-4 my-6">
         {/* Search Bar */}
-        <SearchBar setMovie={setMovie} page={page} />
+        <SearchBar />
 
         {/* Buttons */}
         <Category
@@ -61,6 +62,7 @@ function Movies() {
           <CoverPage allMovie={allMovie} searchResult={searchResult} />
         </div>
       )}
+      
       <div>
         <DisplayMovie
           allMovie={allMovie}

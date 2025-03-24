@@ -2,7 +2,7 @@ import CoverPage from "../components/Movies/CoverPage";
 import axios from "axios";
 import { useEffect, useContext } from "react";
 import { MovieContext } from "../contextCreate/Movie";
-import SearchBar from "../components/Movies/SearchBar";
+import SearchMoive from "../components/Movies/SearchMovie";
 import Category from "../components/Movies/Category";
 import DisplayMovie from "../components/Movies/DisplayMovie";
 import Paging from "../components/Movies/Paging";
@@ -46,7 +46,7 @@ function Movies() {
     <div className="text-white">
       <div className="flex flex-col items-center gap-4 my-6">
         {/* Search Bar */}
-        <SearchBar />
+        <SearchMoive />
 
         {/* Buttons */}
         <Category

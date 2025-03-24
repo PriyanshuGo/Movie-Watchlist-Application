@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function DisplayMovie({ allMovie, searchResult, loading }) {
   const renderMovie = searchResult?.length > 0 ? searchResult : allMovie;
 
@@ -16,19 +18,21 @@ function DisplayMovie({ allMovie, searchResult, loading }) {
             key={el.id}
             className="bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700 p-3 w-60 transition-transform hover:scale-105"
           >
-            <img
-              src={`https://image.tmdb.org/t/p/w300${el.poster_path}`}
-              alt={el.title}
-              className="rounded-lg mb-2"
-            />
-            <div>
-              <h2 className="text-lg text-white font-bold mb-1 truncate">
-                {el.title}
-              </h2>
-              <p className="text-gray-300 text-sm line-clamp-3">
-                {el.overview}
-              </p>
-            </div>
+            <Link to={`/movie/${el.id}`}>
+              <img
+                src={`https://image.tmdb.org/t/p/w300${el.poster_path}`}
+                alt={el.title}
+                className="rounded-lg mb-2"
+              />
+              <div>
+                <h2 className="text-lg text-white font-bold mb-1 truncate">
+                  {el.title}
+                </h2>
+                <p className="text-gray-300 text-sm line-clamp-3">
+                  {el.overview}
+                </p>
+              </div>
+            </Link>
           </div>
         ))}
       </ul>

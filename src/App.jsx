@@ -11,7 +11,8 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import AppLayout from "./Pages/AppLayout";
 import { JokeLoader } from "./components/Todo/JokeLoader";
-import { MovieContext, MovieProvider } from "./contextCreate/Movie";
+import { MovieProvider } from "./contextCreate/Movie";
+import MovieDetail from "./components/Movies/MovieDetail";
 
 function App() {
   const router = createBrowserRouter(
@@ -19,6 +20,7 @@ function App() {
       <Route path="/" element={<AppLayout />}>
         <Route path="/" element={<Home />} loader={JokeLoader}/>
         <Route path="/movies" element={<MovieProvider><Movies /></MovieProvider>} />
+        <Route path="/movies/id" element={<MovieProvider><MovieDetail /></MovieProvider>} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Route>

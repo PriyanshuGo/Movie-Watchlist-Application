@@ -20,7 +20,7 @@ function App() {
       <Route path="/" element={<AppLayout />}>
         <Route path="/" element={<Home />} loader={JokeLoader}/>
         <Route path="/movies" element={<MovieProvider><Movies /></MovieProvider>} />
-        <Route path="/movies/id" element={<MovieProvider><MovieDetail /></MovieProvider>} />
+        <Route path="/movie/:id" element={<MovieProvider><MovieDetail /></MovieProvider>} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Route>

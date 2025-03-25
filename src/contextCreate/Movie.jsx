@@ -13,6 +13,11 @@ export const MovieProvider = ({ children }) => {
     const [search,setSearch] = useState({
       searchResult:[],
     })
-  
-  return <MovieContext.Provider value={{movie,setMovie,search,setSearch}}>{children}</MovieContext.Provider>;
+
+    const [watchLater, setWatchLater] = useState(() => {
+      const savedWatchlist = localStorage.getItem("Whislist");
+      return savedWatchlist ? JSON.parse(savedWatchlist) : [];
+    });
+      
+  return <MovieContext.Provider value={{movie,setMovie,search,setSearch,setWatchLater,watchLater}}>{children}</MovieContext.Provider>;
 };

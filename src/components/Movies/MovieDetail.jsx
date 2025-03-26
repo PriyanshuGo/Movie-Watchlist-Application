@@ -42,7 +42,7 @@ function DetailMovie() {
   }
 
   return (
-    <div>
+    <div className="mx-10">
       {/* Movie Details Layout */}
       <div className="flex flex-col md:flex-row items-start gap-8">
         {/* Large Backdrop on the Left */}

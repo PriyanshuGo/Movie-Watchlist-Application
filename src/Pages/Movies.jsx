@@ -58,8 +58,8 @@ function Movies() {
 
       {searchResult?.length > 0 ? null : (
         <div className="mt-6 text-2xl text-center text-gray-200 font-semibold uppercase tracking-wider">
+          <CoverPage />
           {category} MOVIES
-          <CoverPage allMovie={allMovie} searchResult={searchResult} />
         </div>
       )}
       

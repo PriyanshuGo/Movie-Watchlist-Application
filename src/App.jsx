@@ -13,13 +13,14 @@ import AppLayout from "./Pages/AppLayout";
 import { JokeLoader } from "./components/Wishlist/JokeLoader";
 import { MovieProvider } from "./contextCreate/Movie";
 import MovieDetail from "./components/Movies/MovieDetail";
+import {CoverPageLoader} from "./components/Movies/CoverPageLoader";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<AppLayout />}>
         <Route path="/" element={<Home />} loader={JokeLoader} />
-        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies" element={<Movies />} loader={CoverPageLoader} />
         <Route path="/movie/:id" element={<MovieDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

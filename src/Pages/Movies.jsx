@@ -55,14 +55,15 @@ function Movies() {
           searchResult={searchResult}
         />
       </div>
+      
+      {category == "now_playing" ? <CoverPage /> : null}
 
       {searchResult?.length > 0 ? null : (
-        <div className="mt-6 text-2xl text-center text-gray-200 font-semibold uppercase tracking-wider">
-          <CoverPage />
+        <div className="my-6 text-2xl text-center text-gray-200 font-semibold uppercase tracking-wider">
           {category} MOVIES
         </div>
       )}
-      
+
       <div>
         <DisplayMovie
           allMovie={allMovie}

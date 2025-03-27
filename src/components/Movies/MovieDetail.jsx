@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { MovieContext } from "../../contextCreate/Movie";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import axios from "axios";
 
 function DetailMovie() {
   const Navigate = useNavigate();
@@ -8,10 +9,36 @@ function DetailMovie() {
   const { movie, search, watchLater, setWatchLater } = useContext(MovieContext);
   const { allMovie } = movie;
   const { searchResult } = search;
+  const [foundMovie, setFoundMovie] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const foundMovie =
-    allMovie.find((el) => el.id == id) ||
-    searchResult.find((el) => el.id == id);
+  useEffect(() => {
+    let movieData =
+      allMovie.find((el) => el.id == id) ||
+      searchResult.find((el) => el.id == id);
+
+    if (movieData) {
+      setFoundMovie(movieData);
+      setLoading(false);
+    } else {
+      fetchMovie();
+    }
+  }, []);
+
+  const fetchMovie = async () => {
+    try {
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${
+          import.meta.env.VITE_APIKEY
+        }`
+      );
+      setFoundMovie(res.data);
+    } catch (error) {
+      console.error("Error fetching movie:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleWatchLater = () => {
     const isAlreadyAdded = watchLater.some((el) => el.id === foundMovie.id);
@@ -26,6 +53,14 @@ function DetailMovie() {
       alert("Movie already in watchlist");
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex flex-col justify-center items-center h-screen text-white">
+        <h2 className="text-3xl font-semibold mb-4">Loading...</h2>
+      </div>
+    );
+  }
 
   if (!foundMovie) {
     return (
